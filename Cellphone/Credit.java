@@ -25,7 +25,7 @@ public class Credit {
 
     public void setBalance(int newBalance) {
         if (newBalance < 0) {
-            System.out.println("[setBalance]: The new balance value cannot be negative (" + newBalance + ")");
+            System.out.println("[setBalance()]: The new balance value cannot be negative (" + newBalance + ")");
         } else {
             this.balanceCents = newBalance;
         }
@@ -33,7 +33,7 @@ public class Credit {
 
     public void topUp(int rechargeValue) {
         if (rechargeValue < 0) {
-            System.out.println("[topUp]: The recharge value cannot be negative (" + rechargeValue + ")");
+            System.out.println("[topUp()]: The recharge value cannot be negative (" + rechargeValue + ")");
         } else {
             this.balanceCents += rechargeValue;
         }
@@ -41,7 +41,7 @@ public class Credit {
 
     public void drawCredit(int drawValue) {
         if (drawValue < 0) {
-            System.out.println("[drawCredit]: The draw value must to be a positive number (" + drawValue + ")");
+            System.out.println("[drawCredit()]: The draw value must to be a positive number (" + drawValue + ")");
         } else {
             this.balanceCents -= drawValue;
         }

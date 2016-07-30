@@ -32,7 +32,7 @@ public class Heater {
 
     public void setIncrement(int newIncrement) {
         if (newIncrement < 0) {
-            System.out.println("The increment value cannot be negative (" + newIncrement + "), nothing changed.");
+            System.out.println("[setIncrement()]: The increment value cannot be negative (" + newIncrement + "), nothing changed.");
         } else {
             this.increment = newIncrement;
         }
@@ -41,7 +41,7 @@ public class Heater {
     public void warmer() {
         this.temperature += this.increment;
         if (this.temperature > this.max) {
-            System.out.println("[cooler()]: The temperature cannot be greater than " + this.max + " - Assuming " + this.max + " instead");
+            System.out.println("[warmer()]: The temperature cannot be greater than " + this.max + " - Assuming " + this.max + " instead");
             this.temperature = this.max;
         }
     }
