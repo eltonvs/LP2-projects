@@ -4,6 +4,8 @@
 **/*.jar
 **/*.war
 **/*.ear
+**/*.pkg
+**/*.pkh
 
 # IDE Generated files
 **/*.ctxt
