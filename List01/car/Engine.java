@@ -3,7 +3,6 @@ public class Engine {
     private String  displacement;
     private String  fuelType;
 
-
     /**
      * The Engine class constructor
      *
@@ -15,11 +14,6 @@ public class Engine {
         this.setDisplacement(_displacement);
         this.setFuelType(_fuelType);
     }
-
-
-    //
-    // Setters
-    //
 
     /**
      * Sets the Engine State
@@ -47,11 +41,6 @@ public class Engine {
     public void setFuelType(String newFuelType) {
         this.fuelType = newFuelType;
     }
-
-
-    //
-    // Getters
-    //
 
     /**
      * Gets the Engine's State

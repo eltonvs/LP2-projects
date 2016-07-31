@@ -15,10 +15,6 @@ public class Car {
     private int     currentGear;  // N = 0 | R = -1
     private int     milesPerLitre;
 
-    //
-    // Constructor
-    //
-
     /**
      * Constructor of Car class
      *
@@ -55,11 +51,6 @@ public class Car {
         this.milesPerLitre = 8;  // ~ 13Km/L
     }
 
-
-    //
-    // Setters
-    //
-
     /**
      * Set the Gear Number
      *
@@ -81,11 +72,6 @@ public class Car {
     public void setColor(String newColor) {
         this.color = newColor;
     }
-
-
-    //
-    // Getters
-    //
 
     /**
      * Gets the number of gears
@@ -119,11 +105,6 @@ public class Car {
         return this.mileage;
     }
     */
-
-
-    //
-    // Methods
-    //
 
     /**
      * Turn the car on
