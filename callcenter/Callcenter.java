@@ -5,11 +5,10 @@ public class Callcenter {
 
     public Callcenter() {
         this.dictionary = new HashMap<String, String>();
-        this.dictionary.put("tela", "Já tentou reiniciar o monitor?");
-        this.dictionary.put("internet", "Você pagou a conta?");
-        this.dictionary.put("conexão", "Já tentou reiniciar o roteador?");
-        this.dictionary.put("teclado", "Já verificou se o teclado está conectado?");
-        this.dictionary.put("mouse", "Já verificou se o mouse está conectado?");
+    }
+
+    public void addNewEntry(String key, String val) {
+        this.dictionary.put(key.toLowerCase(), val);
     }
 
     public boolean getAnswer(String question) {
