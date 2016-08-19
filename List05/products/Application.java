@@ -13,8 +13,9 @@ public class Application {
         products.add(new Product("Café", 1.0, LocalDate.parse("01/01/2022", fmt)));
         products.add(new Product("Beterraba", 0.9, LocalDate.parse("12/11/2017", fmt)));
 
-        for (int i = 0; i < products.size(); i++) {
-            System.out.printf("%d) %12s %09.2f %s\n", i + 1, products.get(i).getName(), products.get(i).getWeight(), products.get(i).getExpirationDate().format(fmt));
+        int i = 1;
+        for (Product p : products) {
+            System.out.printf("%d) %12s %09.2f %s\n", i++, p.getName(), p.getWeight(), p.getExpirationDate().format(fmt));
         }
     }
 }
