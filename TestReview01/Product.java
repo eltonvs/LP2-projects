@@ -8,14 +8,14 @@ public class Product {
     private double price;
     private LocalTime time;
 
-    public Product(int _prodCode, String _prodName, int _amount, double _price, LocalTime _time) {
+    public Product(String _prodCode, String _prodName, int _amount, double _price) {
         Random random_device = new Random();
 
         this.productCode = "PROD-" + _prodCode + "-" + random_device.nextInt(999);
         this.productName = _prodName;
         this.amount = _amount;
         this.price = _price;
-        this.time = _time;
+        this.time = LocalTime.now();
     }
 
     public String getProductCode() {
