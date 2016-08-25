@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class Application {
     public static void main(String[] args) {
         // Create Users
@@ -6,10 +8,12 @@ public class Application {
         users[1] = new User("John Doe", "123.456.789-00");
 
         // Show users information
-        System.out.println("Users list:");
+        String usr_lst = "";
         for (User u : users) {
-            System.out.println(">>> Name: " + u.getName() + " - CPF: " + u.getCPF());
+            usr_lst += "Name: " + u.getName() + " - CPF: " + u.getCPF() + "\n";
         }
+
+        JOptionPane.showMessageDialog(null, usr_lst, "Users List", JOptionPane.INFORMATION_MESSAGE);
 
         // Create Products
         Product[] products = new Product[5];
