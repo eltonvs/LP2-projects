@@ -11,3 +11,4 @@
 # IDE Generated files
 **/*.ctxt
 **/*.bluej
+**/bin/
