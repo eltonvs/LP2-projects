@@ -1,8 +1,13 @@
 public class Application {
 	public static void main(String[] args) {
-		Automobile f = new Ferrari();
+		Ferrari f = new Ferrari();
 		Route route = new Route();
+		ShiningRing sr = new ShiningRing();
 
-		route.go(f);
+		Salesman sm = new Salesman();
+		sm.showPrice(f);
+		sm.showPrice(sr);
+
+		// route.go(f);
 	}
 }

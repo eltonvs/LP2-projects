@@ -1,4 +1,4 @@
-public class Ferrari implements Car {
+public class Ferrari implements Car, ExpensiveItem {
 	@Override
 	public void turnRight() {
 		System.out.println("Ferrari turning on right...");
@@ -17,5 +17,10 @@ public class Ferrari implements Car {
 	@Override
 	public void openDoor() {
 		System.out.println("Ferrari opening doors...");
+	}
+
+	@Override
+	public double getPrice() {
+		return 1000000.00;
 	}
 }
