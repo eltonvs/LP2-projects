@@ -3,6 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Leilao {
+
 	private String descricao;
 	private List<Lance> lances;
 
@@ -12,7 +13,23 @@ public class Leilao {
 	}
 
 	public void propoe(Lance lance) {
+		if (!lances.isEmpty()
+				&& getUltimoLance().getUsuario().equals(lance.getUsuario()))
+			return;
+
+		int c = 1;
+		for (Lance l : lances)
+			if (l.getUsuario().equals(lance.getUsuario()))
+				c++;
+
+		if (c > 5)
+			return;
+
 		lances.add(lance);
+	}
+
+	private Lance getUltimoLance() {
+		return lances.get(lances.size() - 1);
 	}
 
 	public String getDescricao() {
@@ -22,4 +39,5 @@ public class Leilao {
 	public List<Lance> getLances() {
 		return Collections.unmodifiableList(lances);
 	}
+
 }
