@@ -12,3 +12,5 @@
 **/*.ctxt
 **/*.bluej
 **/bin/
+/Swing/ProjetoExemploSwing/nbproject/private/
+/Swing/ProjetoExemploSwing/build/
