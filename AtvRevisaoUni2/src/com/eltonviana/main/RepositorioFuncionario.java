@@ -3,6 +3,14 @@ package com.eltonviana.main;
 public class RepositorioFuncionario implements IRepositorio {
 	private Repositorio repo;
 
+	public Repositorio getRepo() {
+		return repo;
+	}
+
+	public void setRepo(Repositorio repo) {
+		this.repo = repo;
+	}
+
 	public RepositorioFuncionario() {
 		repo = new Repositorio();
 	}
@@ -13,20 +21,32 @@ public class RepositorioFuncionario implements IRepositorio {
 	}
 
 	@Override
-	public void deletarFuncionario(int matricula) {
+	public void deletarFuncionario(int matricula)
+			throws DeletarFuncionarioException {
 		for (Funcionario f : this.repo.getBanco()) {
-			if (f.getMatricula() == matricula)
+			if (f.getMatricula() == matricula) {
 				this.repo.getBanco().remove(f);
+				return;
+			}
 		}
+
+		throw new DeletarFuncionarioException(
+				"A matrícula selecionada não consta no Repositório");
 	}
 
 	@Override
-	public void atualizarFuncionario(int matricula, String cpf) {
+	public void atualizarFuncionario(int matricula, String cpf)
+			throws AtualizarFuncionarioException {
 		int i = 0;
 		for (Funcionario f : this.repo.getBanco()) {
-			if (f.getMatricula() == matricula && i++ >= 0)
+			if (f.getMatricula() == matricula && i++ >= 0) {
 				this.repo.getBanco().get(i).setCpf(cpf);
+				return;
+			}
 		}
+
+		throw new AtualizarFuncionarioException(
+				"A matrícula selecionada não consta no Repositório");
 	}
 
 	@Override

@@ -1,10 +1,10 @@
 package com.eltonviana.main;
 
-public class Cliente {
+public class Cliente extends UsuarioAutenticavel {
 	private String nome;
-	private String senha;
+	private int senha;
 
-	public Cliente(String nome, String senha) {
+	public Cliente(String nome, int senha) {
 		super();
 		this.nome = nome;
 		this.senha = senha;
@@ -18,11 +18,16 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public String getSenha() {
+	public int getSenha() {
 		return senha;
 	}
 
-	public void setSenha(String senha) {
+	public void setSenha(int senha) {
 		this.senha = senha;
+	}
+
+	@Override
+	public boolean autentica(int senha) {
+		return (senha == this.getSenha());
 	}
 }
