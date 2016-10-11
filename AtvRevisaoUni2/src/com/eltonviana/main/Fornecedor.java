@@ -1,11 +1,11 @@
 package com.eltonviana.main;
 
-public class Fornecedor {
+public class Fornecedor extends UsuarioAutenticavel {
 	private String nome;
-	private String senha;
+	private int senha;
 	private String cidade;
 
-	public Fornecedor(String nome, String senha, String cidade) {
+	public Fornecedor(String nome, int senha, String cidade) {
 		super();
 		this.nome = nome;
 		this.senha = senha;
@@ -20,11 +20,11 @@ public class Fornecedor {
 		this.nome = nome;
 	}
 
-	public String getSenha() {
+	public int getSenha() {
 		return senha;
 	}
 
-	public void setSenha(String senha) {
+	public void setSenha(int senha) {
 		this.senha = senha;
 	}
 
@@ -34,5 +34,11 @@ public class Fornecedor {
 
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
+	}
+
+	@Override
+	public boolean autentica(int senha) {
+		return (senha == this.getSenha() && getCidade().toLowerCase().equals(
+				"natal"));
 	}
 }
