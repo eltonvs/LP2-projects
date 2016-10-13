@@ -8,17 +8,16 @@ package projetoexemploswing.telas;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import projetoexemploswing.DAO.LivroDAO;
+import projetoexemploswing.DAO.AutorDAO;
 import projetoexemploswing.Dominio.Autor;
-import projetoexemploswing.Dominio.Livro;
 
 /**
  *
  * @author eltonviana
  */
-public class FormListarLivros extends javax.swing.JDialog {
+public class FormListarAutores extends javax.swing.JDialog {
 
-    ArrayList<Livro> listarLivros = new LivroDAO().buscarTodos();
+    ArrayList<Autor> listarAutores = new AutorDAO().buscarTodos();
 
     /**
      * Creates new form FormListarLivros
@@ -26,11 +25,11 @@ public class FormListarLivros extends javax.swing.JDialog {
      * @param parent
      * @param modal
      */
-    public FormListarLivros(java.awt.Frame parent, boolean modal) {
+    public FormListarAutores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
 
-        addLivros();
+        addAutores();
     }
 
     /**
@@ -45,13 +44,9 @@ public class FormListarLivros extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtTitulo = new javax.swing.JTextField();
-        txtISBN = new javax.swing.JTextField();
-        txtAutor = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -59,7 +54,7 @@ public class FormListarLivros extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Lista de Livros");
+        jLabel1.setText("Lista de Autores");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -74,19 +69,9 @@ public class FormListarLivros extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel2.setText("Titulo");
+        jLabel4.setText("Nome");
 
-        jLabel3.setText("ISBN");
-
-        jLabel4.setText("Autor");
-
-        jLabel5.setText("Cadastrar Novo Livro:");
-
-        txtTitulo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTituloActionPerformed(evt);
-            }
-        });
+        jLabel5.setText("Cadastrar Novo Autor:");
 
         jButton1.setText("Salvar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,15 +99,11 @@ public class FormListarLivros extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel6))
-                        .addGap(24, 24, 24)
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAutor)
-                            .addComponent(txtISBN)
-                            .addComponent(txtTitulo)
+                            .addComponent(txtNome)
                             .addComponent(txtCPF)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,18 +126,10 @@ public class FormListarLivros extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -172,10 +145,6 @@ public class FormListarLivros extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTituloActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -183,33 +152,25 @@ public class FormListarLivros extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Livro l = new Livro(
-                txtTitulo.getText(),
-                txtISBN.getText(),
-                new Autor(txtAutor.getText(), txtCPF.getText())
-        );
+        Autor a = new Autor(txtNome.getText(), txtCPF.getText());
 
-        FormPrincipal.ld.inserir(l);
+        FormPrincipal.ad.inserir(a);
 
-        addLivros();
+        addAutores();
 
-        this.txtTitulo.setText("");
-        this.txtISBN.setText("");
-        this.txtAutor.setText("");
+        this.txtNome.setText("");
         this.txtCPF.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void addLivros() {
-        String[] colunasNomes = {"Título", "ISBN", "Autor", "CPF Autor"};
+    private void addAutores() {
+        String[] colunasNomes = {"Nome", "CPF"};
 
         DefaultTableModel dt = new DefaultTableModel(colunasNomes, 0);
 
-        for (Livro livro : listarLivros) {
+        for (Autor autor : listarAutores) {
             Object dados[] = {
-                livro.getTitulo(),
-                livro.getIsbn(),
-                livro.getAutor().getNome(),
-                livro.getAutor().getCpf()
+                autor.getNome(),
+                autor.getCpf()
             };
 
             dt.addRow(dados);
@@ -235,20 +196,21 @@ public class FormListarLivros extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormListarLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormListarAutores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormListarLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormListarAutores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormListarLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormListarAutores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormListarLivros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormListarAutores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                FormListarLivros dialog = new FormListarLivros(new javax.swing.JFrame(), true);
+                FormListarAutores dialog = new FormListarAutores(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -268,16 +230,12 @@ public class FormListarLivros extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtAutor;
     private javax.swing.JTextField txtCPF;
-    private javax.swing.JTextField txtISBN;
-    private javax.swing.JTextField txtTitulo;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package projetoexemploswing.DAO;
 
 import java.util.ArrayList;
+import projetoexemploswing.Banco;
 import projetoexemploswing.Dominio.Autor;
 
 /**
@@ -15,7 +16,7 @@ public class AutorDAO implements GenericDAO<Autor> {
 
     @Override
     public void inserir(Autor obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Banco.BANCOAUTOR.add(obj);
     }
 
     @Override
@@ -25,12 +26,12 @@ public class AutorDAO implements GenericDAO<Autor> {
 
     @Override
     public void apagar(Autor obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Banco.BANCOAUTOR.remove(obj);
     }
 
     @Override
     public ArrayList<Autor> buscarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Banco.BANCOAUTOR;
     }
 
 }

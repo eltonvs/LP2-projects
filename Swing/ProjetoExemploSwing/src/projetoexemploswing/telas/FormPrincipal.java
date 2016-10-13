@@ -5,17 +5,45 @@
  */
 package projetoexemploswing.telas;
 
+import projetoexemploswing.DAO.AutorDAO;
+import projetoexemploswing.DAO.LivroDAO;
+import projetoexemploswing.Dominio.Autor;
+import projetoexemploswing.Dominio.Livro;
+
 /**
  *
  * @author eltonviana
  */
 public class FormPrincipal extends javax.swing.JFrame {
 
+    public static LivroDAO ld = new LivroDAO();
+    public static AutorDAO ad = new AutorDAO();
+
     /**
      * Creates new form FormPrincipal
      */
     public FormPrincipal() {
         initComponents();
+
+        Autor a1 = new Autor("Juquinha", "123");
+        Autor a2 = new Autor("Selan", "456");
+        Autor a3 = new Autor("José", "789");
+        Autor a4 = new Autor("João", "357");
+
+        Livro l1 = new Livro("Java", "321684321", a1);
+        Livro l2 = new Livro("C++", "684652131", a2);
+        Livro l3 = new Livro("C#", "354321455", a3);
+        Livro l4 = new Livro("JavaScript", "545489765", a4);
+
+        ld.inserir(l1);
+        ld.inserir(l2);
+        ld.inserir(l3);
+        ld.inserir(l4);
+
+        ad.inserir(a1);
+        ad.inserir(a2);
+        ad.inserir(a3);
+        ad.inserir(a4);
     }
 
     /**
@@ -48,6 +76,11 @@ public class FormPrincipal extends javax.swing.JFrame {
 
         jMenuAutor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         jMenuAutor.setText("Autor");
+        jMenuAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuAutorActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuAutor);
 
         jMenuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
@@ -88,6 +121,12 @@ public class FormPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenuSairActionPerformed
+
+    private void jMenuAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAutorActionPerformed
+        // TODO add your handling code here:
+        FormListarAutores fl = new FormListarAutores(this, false);
+        fl.setVisible(true);
+    }//GEN-LAST:event_jMenuAutorActionPerformed
 
     /**
      * @param args the command line arguments
