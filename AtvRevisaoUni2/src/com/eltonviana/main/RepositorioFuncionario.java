@@ -21,8 +21,7 @@ public class RepositorioFuncionario implements IRepositorio {
 	}
 
 	@Override
-	public void deletarFuncionario(int matricula)
-			throws DeletarFuncionarioException {
+	public void deletarFuncionario(int matricula) throws DeletarFuncionarioException {
 		for (Funcionario f : this.repo.getBanco()) {
 			if (f.getMatricula() == matricula) {
 				this.repo.getBanco().remove(f);
@@ -30,23 +29,20 @@ public class RepositorioFuncionario implements IRepositorio {
 			}
 		}
 
-		throw new DeletarFuncionarioException(
-				"A matrícula selecionada não consta no Repositório");
+		throw new DeletarFuncionarioException("A matrícula selecionada não consta no Repositório");
 	}
 
 	@Override
-	public void atualizarFuncionario(int matricula, String cpf)
-			throws AtualizarFuncionarioException {
-		int i = 0;
+	public void atualizarFuncionario(int matricula, String cpf) throws AtualizarFuncionarioException {
+		int i = -1;
 		for (Funcionario f : this.repo.getBanco()) {
-			if (f.getMatricula() == matricula && i++ >= 0) {
+			if (f.getMatricula() == matricula && ++i >= 0) {
 				this.repo.getBanco().get(i).setCpf(cpf);
 				return;
 			}
 		}
 
-		throw new AtualizarFuncionarioException(
-				"A matrícula selecionada não consta no Repositório");
+		throw new AtualizarFuncionarioException("A matrícula selecionada não consta no Repositório");
 	}
 
 	@Override
