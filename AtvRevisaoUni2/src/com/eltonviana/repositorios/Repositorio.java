@@ -1,5 +1,6 @@
-package com.eltonviana.main;
+package com.eltonviana.repositorios;
 
+import com.eltonviana.main.Funcionario;
 import java.util.ArrayList;
 
 public class Repositorio {

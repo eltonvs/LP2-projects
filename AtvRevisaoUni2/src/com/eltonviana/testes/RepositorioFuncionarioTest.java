@@ -1,5 +1,9 @@
-package com.eltonviana.main;
+package com.eltonviana.testes;
 
+import com.eltonviana.exceptions.AtualizarFuncionarioException;
+import com.eltonviana.exceptions.DeletarFuncionarioException;
+import com.eltonviana.main.Funcionario;
+import com.eltonviana.repositorios.RepositorioFuncionario;
 import static org.junit.Assert.*;
 
 import org.junit.Test;

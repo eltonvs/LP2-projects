@@ -1,4 +1,4 @@
-package com.eltonviana.main;
+package com.eltonviana.exceptions;
 
 public class DeletarFuncionarioException extends Exception {
 

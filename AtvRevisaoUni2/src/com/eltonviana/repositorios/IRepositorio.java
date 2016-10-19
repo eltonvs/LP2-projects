@@ -1,4 +1,8 @@
-package com.eltonviana.main;
+package com.eltonviana.repositorios;
+
+import com.eltonviana.exceptions.AtualizarFuncionarioException;
+import com.eltonviana.exceptions.DeletarFuncionarioException;
+import com.eltonviana.main.Funcionario;
 
 public interface IRepositorio {
 	void inserirFuncionario(Funcionario f);
