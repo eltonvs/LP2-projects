@@ -11,14 +11,12 @@ import java.util.Comparator;
  * @author Elton Viana
  * @param <Type>
  */
-public class Arvore<Type> {
+public class Arvore<Type extends Comparable<Type>> {
 
     private Node<Type> root;
-    private Comparator<Type> cmp;
 
-    public Arvore(Comparator<Type> cmp) {
+    public Arvore() {
         this.root = null;
-        this.cmp = cmp;
     }
 
     public boolean isEmpty() {
@@ -87,9 +85,9 @@ public class Arvore<Type> {
             return;
         }
 
-        if (cmp.compare(newNode.getValue(), prevNode.getValue()) < 0) {
+        if (newNode.getValue().compareTo(prevNode.getValue()) < 0) {
             insert(newNode, prevNode.getLeftSon());
-        } else if (cmp.compare(newNode.getValue(), prevNode.getValue()) > 0) {
+        } else if (newNode.getValue().compareTo(prevNode.getValue()) > 0) {
             insert(newNode, prevNode.getRightSon());
         }
     }

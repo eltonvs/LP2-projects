@@ -9,7 +9,7 @@ package com.eltonviana.arvore;
  * @author Elton Viana
  * @param <Type>
  */
-public class Node<Type> {
+public class Node<Type extends Comparable<Type>> {
 
     private Type value;
     private Node leftSon;
