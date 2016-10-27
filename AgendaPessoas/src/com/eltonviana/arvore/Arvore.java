@@ -5,8 +5,6 @@
  */
 package com.eltonviana.arvore;
 
-import java.util.Comparator;
-
 /**
  * @author Elton Viana
  * @param <Type>
@@ -80,15 +78,18 @@ public class Arvore<Type extends Comparable<Type>> {
             return;
         }
 
-        if (prevNode == null) {
-            prevNode = newNode;
-            return;
-        }
-
         if (newNode.getValue().compareTo(prevNode.getValue()) < 0) {
-            insert(newNode, prevNode.getLeftSon());
+            if (prevNode.getLeftSon() == null) {
+                prevNode.setLeftSon(newNode);
+            } else {
+                insert(newNode, prevNode.getLeftSon());
+            }
         } else if (newNode.getValue().compareTo(prevNode.getValue()) > 0) {
-            insert(newNode, prevNode.getRightSon());
+            if (prevNode.getRightSon() == null) {
+                prevNode.setRightSon(newNode);
+            } else {
+                insert(newNode, prevNode.getRightSon());
+            }
         }
     }
 }
