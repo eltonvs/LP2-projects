@@ -5,15 +5,25 @@
  */
 package com.eltonviana.arvore;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
  * @author elton
  */
 public class ArvoreTest {
+
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @Before
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
 
     /**
      * Test of isEmpty method, of class Arvore.
@@ -31,6 +41,33 @@ public class ArvoreTest {
     public void testGetHeightEmptyTree() {
         Arvore instance = new Arvore();
         assertEquals(-1, instance.getHeight());
+    }
+
+    /**
+     * Test of getDepth method, of class Arvore.
+     */
+    @Test
+    public void testGetDepth() {
+        Arvore instance = new Arvore();
+        Node a = instance.insert(4);
+        Node b = instance.insert(2);
+        Node c = instance.insert(1);
+        Node d = instance.insert(3);
+        Node e = instance.insert(6);
+        Node f = instance.insert(5);
+        Node g = instance.insert(7);
+
+        Node outOfTree = new Node(50);
+
+        assertEquals(-1, instance.getDepth(null));
+        assertEquals(-1, instance.getDepth(outOfTree));
+        assertEquals(0, instance.getDepth(a));
+        assertEquals(1, instance.getDepth(b));
+        assertEquals(2, instance.getDepth(c));
+        assertEquals(2, instance.getDepth(d));
+        assertEquals(1, instance.getDepth(e));
+        assertEquals(2, instance.getDepth(f));
+        assertEquals(2, instance.getDepth(g));
     }
 
     /**
@@ -253,6 +290,51 @@ public class ArvoreTest {
         }
 
         assertEquals(true, instance.isEmpty());
+    }
+
+    @Test
+    public void testPrintInOrder() {
+        Arvore instance = new Arvore();
+        Node a = instance.insert(4);
+        Node b = instance.insert(2);
+        Node c = instance.insert(1);
+        Node d = instance.insert(3);
+        Node e = instance.insert(6);
+        Node f = instance.insert(5);
+        Node g = instance.insert(7);
+
+        instance.printInOrder();
+        assertEquals("[ 1 2 3 4 5 6 7 ]\n", outContent.toString());
+    }
+
+    @Test
+    public void testPrintPreOrder() {
+        Arvore instance = new Arvore();
+        Node a = instance.insert(4);
+        Node b = instance.insert(2);
+        Node c = instance.insert(1);
+        Node d = instance.insert(3);
+        Node e = instance.insert(6);
+        Node f = instance.insert(5);
+        Node g = instance.insert(7);
+
+        instance.printPreOrder();
+        assertEquals("[ 4 2 1 3 6 5 7 ]\n", outContent.toString());
+    }
+
+    @Test
+    public void testPrintPostOrder() {
+        Arvore instance = new Arvore();
+        Node a = instance.insert(4);
+        Node b = instance.insert(2);
+        Node c = instance.insert(1);
+        Node d = instance.insert(3);
+        Node e = instance.insert(6);
+        Node f = instance.insert(5);
+        Node g = instance.insert(7);
+
+        instance.printPostOrder();
+        assertEquals("[ 1 3 2 5 7 6 4 ]\n", outContent.toString());
     }
 
 }

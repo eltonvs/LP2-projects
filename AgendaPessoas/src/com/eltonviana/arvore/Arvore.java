@@ -36,6 +36,26 @@ public class Arvore<Type extends Comparable<Type>> {
         return leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
     }
 
+    public int getDepth(Node<Type> node) {
+        return getDepth(node, root);
+    }
+
+    private int getDepth(Node<Type> node, Node<Type> father) {
+        if (node == null || father == null) {
+            return -1;
+        }
+
+        if (node == father) {
+            return 0;
+        }
+
+        int depth = getDepth(node, father.getValue().compareTo(node.getValue()) < 0 ? father.getRightChild() : father.getLeftChild());
+        if (depth != -1) {
+            return 1 + depth;
+        }
+        return -1;
+    }
+
     public Node<Type> getSmallestElement() {
         return getSmallestElement(root);
     }
@@ -190,6 +210,48 @@ public class Arvore<Type extends Comparable<Type>> {
         }
 
         return true;
+    }
+
+    public void printInOrder() {
+        System.out.print("[");
+        printInOrder(root);
+        System.out.println(" ]");
+    }
+
+    public void printPreOrder() {
+        System.out.print("[");
+        printPreOrder(root);
+        System.out.println(" ]");
+    }
+
+    public void printPostOrder() {
+        System.out.print("[");
+        printPostOrder(root);
+        System.out.println(" ]");
+    }
+
+    private void printInOrder(Node<Type> node) {
+        if (node != null) {
+            printInOrder(node.getLeftChild());
+            System.out.print(" " + node.getValue());
+            printInOrder(node.getRightChild());
+        }
+    }
+
+    private void printPreOrder(Node<Type> node) {
+        if (node != null) {
+            System.out.print(" " + node.getValue());
+            printPreOrder(node.getLeftChild());
+            printPreOrder(node.getRightChild());
+        }
+    }
+
+    private void printPostOrder(Node<Type> node) {
+        if (node != null) {
+            printPostOrder(node.getLeftChild());
+            printPostOrder(node.getRightChild());
+            System.out.print(" " + node.getValue());
+        }
     }
 
 }
