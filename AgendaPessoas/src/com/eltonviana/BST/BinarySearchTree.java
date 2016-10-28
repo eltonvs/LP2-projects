@@ -49,11 +49,13 @@ public class BinarySearchTree<Type extends Comparable<Type>> {
             return 0;
         }
 
-        int depth = getDepth(node, father.getValue().compareTo(node.getValue()) < 0 ? father.getRightChild() : father.getLeftChild());
-        if (depth != -1) {
-            return 1 + depth;
-        }
-        return -1;
+        int depth = getDepth(
+                node,
+                father.getValue().compareTo(node.getValue()) < 0
+                ? father.getRightChild() : father.getLeftChild()
+        );
+
+        return depth != -1 ? 1 + depth : -1;
     }
 
     public Node<Type> getSmallestElement() {
