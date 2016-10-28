@@ -12,13 +12,16 @@ package com.eltonviana.arvore;
 public class Node<Type extends Comparable<Type>> {
 
     private Type value;
-    private Node leftSon;
-    private Node rightSon;
+    private Node leftChild;
+    private Node rightChild;
 
     public Node() {
+        leftChild = null;
+        rightChild = null;
     }
 
     public Node(Type value) {
+        this();
         this.value = value;
     }
 
@@ -26,24 +29,36 @@ public class Node<Type extends Comparable<Type>> {
         return value;
     }
 
-    public Node getLeftSon() {
-        return leftSon;
+    public Node getLeftChild() {
+        return leftChild;
     }
 
-    public Node getRightSon() {
-        return rightSon;
+    public Node getRightChild() {
+        return rightChild;
     }
 
     public void setValue(Type value) {
         this.value = value;
     }
 
-    public void setLeftSon(Node leftSon) {
-        this.leftSon = leftSon;
+    public void setLeftChild(Node leftChild) {
+        this.leftChild = leftChild;
     }
 
-    public void setRightSon(Node rightSon) {
-        this.rightSon = rightSon;
+    public void setRightChild(Node rightChild) {
+        this.rightChild = rightChild;
+    }
+
+    public boolean hasChild() {
+        return this.getLeftChild() != null || this.getRightChild() != null;
+    }
+
+    public boolean hasOnlyLeftChild() {
+        return this.getLeftChild() != null && this.getRightChild() == null;
+    }
+
+    public boolean hasOnlyRightChild() {
+        return this.getLeftChild() == null && this.getRightChild() != null;
     }
 
 }
