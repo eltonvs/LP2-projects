@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eltonviana.arvore;
+package com.eltonviana.BST;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author elton
+ * @author Elton Viana
  */
 public class NodeTest {
 

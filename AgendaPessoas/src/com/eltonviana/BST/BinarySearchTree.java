@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eltonviana.arvore;
+package com.eltonviana.BST;
 
 /**
  * @author Elton Viana
  * @param <Type>
  */
-public class Arvore<Type extends Comparable<Type>> {
+public class BinarySearchTree<Type extends Comparable<Type>> {
 
     private Node<Type> root;
 
-    public Arvore() {
+    public BinarySearchTree() {
         this.root = null;
     }
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eltonviana.arvore;
+package com.eltonviana.BST;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -11,19 +11,18 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- *
- * @author elton
+ * @author Elton Viana
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({com.eltonviana.arvore.ArvoreTest.class, com.eltonviana.arvore.NodeTest.class})
-public class ArvoreSuite {
+@Suite.SuiteClasses({com.eltonviana.BST.BinarySearchTreeTest.class, com.eltonviana.BST.NodeTest.class})
+public class BSTSuite {
 
     /**
-     * Test of remove method, of class Arvore.
+     * Test of remove and node child, of class BinarySearchTree and Node.
      */
     @Test
     public void testChildsFromNodesOnRemove() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node a = instance.insert(4);
         Node b = instance.insert(2);
         Node c = instance.insert(1);

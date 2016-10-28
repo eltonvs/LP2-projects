@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eltonviana.arvore;
+package com.eltonviana.BST;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -13,10 +13,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 
 /**
- *
- * @author elton
+ * @author Elton Viana
  */
-public class ArvoreTest {
+public class BinarySearchTreeTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
@@ -26,29 +25,29 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of isEmpty method, of class Arvore.
+     * Test of isEmpty method, of class BinarySearchTree.
      */
     @Test
     public void testIsEmpty() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         assertEquals(true, instance.isEmpty());
     }
 
     /**
-     * Test of getHeight method, of class Arvore.
+     * Test of getHeight method, of class BinarySearchTree.
      */
     @Test
     public void testGetHeightEmptyTree() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         assertEquals(-1, instance.getHeight());
     }
 
     /**
-     * Test of getDepth method, of class Arvore.
+     * Test of getDepth method, of class BinarySearchTree.
      */
     @Test
     public void testGetDepth() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node a = instance.insert(4);
         Node b = instance.insert(2);
         Node c = instance.insert(1);
@@ -71,22 +70,22 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of getSmallestElement method, of class Arvore.
+     * Test of getSmallestElement method, of class BinarySearchTree.
      */
     @Test
     public void testGetSmallestElementEmptyTree() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node expResult = null;
         Node result = instance.getSmallestElement();
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of getSmallestElement method, of class Arvore.
+     * Test of getSmallestElement method, of class BinarySearchTree.
      */
     @Test
     public void testGetSmallestElementSomeElementsTree() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         for (Integer i = 0; i < 10; i++) {
             instance.insert(i);
         }
@@ -94,11 +93,11 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of getBiggestElement method, of class Arvore.
+     * Test of getBiggestElement method, of class BinarySearchTree.
      */
     @Test
     public void testGetBiggestElementEmptyTree() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         for (Integer i = 0; i < 10; i++) {
             instance.insert(i);
         }
@@ -106,11 +105,11 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of insert method, of class Arvore.
+     * Test of insert method, of class BinarySearchTree.
      */
     @Test
     public void testInsertRoot() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         instance.insert(10);
         assertEquals(false, instance.isEmpty());
         assertEquals(0, instance.getHeight());
@@ -119,11 +118,11 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of insert method, of class Arvore.
+     * Test of insert method, of class BinarySearchTree.
      */
     @Test
     public void testInsertTwoElements() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         instance.insert(10);
         instance.insert(5);
         assertEquals(false, instance.isEmpty());
@@ -133,11 +132,11 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of insert method, of class Arvore.
+     * Test of insert method, of class BinarySearchTree.
      */
     @Test
     public void testInsertThreeElements() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         instance.insert(10);
         instance.insert(5);
         instance.insert(15);
@@ -148,30 +147,30 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of search method, of class Arvore.
+     * Test of search method, of class BinarySearchTree.
      */
     @Test
     public void testSearchEmptyTree() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         assertEquals(null, instance.search(10));
     }
 
     /**
-     * Test of search method, of class Arvore.
+     * Test of search method, of class BinarySearchTree.
      */
     @Test
     public void testSearchRoot() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node a = instance.insert(10);
         assertEquals(a, instance.search(10));
     }
 
     /**
-     * Test of search method, of class Arvore.
+     * Test of search method, of class BinarySearchTree.
      */
     @Test
     public void testSearchManyElements() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node a = instance.insert(10);
         Node b = instance.insert(5);
         Node c = instance.insert(15);
@@ -186,21 +185,21 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of remove method, of class Arvore.
+     * Test of remove method, of class BinarySearchTree.
      */
     @Test
     public void testRemoveEmptyTree() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         assertEquals(false, instance.remove(10));
         assertEquals(true, instance.isEmpty());
     }
 
     /**
-     * Test of remove method, of class Arvore.
+     * Test of remove method, of class BinarySearchTree.
      */
     @Test
     public void testRemoveSingleElementTree() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         instance.insert(10);
         assertEquals(false, instance.remove(20));
         assertEquals(false, instance.isEmpty());
@@ -209,11 +208,11 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of remove method, of class Arvore.
+     * Test of remove method, of class BinarySearchTree.
      */
     @Test
     public void testRemoveRoots() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node a = instance.insert(10);
         Node b = instance.insert(5);
         Node c = instance.insert(15);
@@ -231,11 +230,11 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of remove method, of class Arvore.
+     * Test of remove method, of class BinarySearchTree.
      */
     @Test
     public void testRemoveOneElement() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node a = instance.insert(10);
         Node b = instance.insert(5);
         Node c = instance.insert(15);
@@ -246,11 +245,11 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of remove method, of class Arvore.
+     * Test of remove method, of class BinarySearchTree.
      */
     @Test
     public void testRemoveLeafElements() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node a = instance.insert(4);
         Node b = instance.insert(2);
         Node c = instance.insert(1);
@@ -270,11 +269,11 @@ public class ArvoreTest {
     }
 
     /**
-     * Test of remove method, of class Arvore.
+     * Test of remove method, of class BinarySearchTree.
      */
     @Test
     public void testRemoveManyElements() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         ArrayList<Node> nodes = new ArrayList();
 
         for (Integer i = 0; i < 10; i++) {
@@ -294,7 +293,7 @@ public class ArvoreTest {
 
     @Test
     public void testPrintInOrder() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node a = instance.insert(4);
         Node b = instance.insert(2);
         Node c = instance.insert(1);
@@ -309,7 +308,7 @@ public class ArvoreTest {
 
     @Test
     public void testPrintPreOrder() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node a = instance.insert(4);
         Node b = instance.insert(2);
         Node c = instance.insert(1);
@@ -324,7 +323,7 @@ public class ArvoreTest {
 
     @Test
     public void testPrintPostOrder() {
-        Arvore instance = new Arvore();
+        BinarySearchTree instance = new BinarySearchTree();
         Node a = instance.insert(4);
         Node b = instance.insert(2);
         Node c = instance.insert(1);
